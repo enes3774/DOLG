@@ -38,7 +38,7 @@ def topk_errors(preds, labels, ks):
     # (batch_size, max_k) -> (max_k, batch_size)
     top_max_k_inds = top_max_k_inds.t()
     # (batch_size, ) -> (max_k, batch_size)
-    rep_max_k_labels = labels.view(1, -1).expand_as(top_max_k_inds)
+    rep_max_k_labels = labels.reshape(1, -1).expand_as(top_max_k_inds)
     # (i, j) = 1 if top i-th prediction for the j-th sample is correct
     top_max_k_correct = top_max_k_inds.eq(rep_max_k_labels)
     # Compute the number of topk correct predictions for each k
