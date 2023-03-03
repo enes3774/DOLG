@@ -31,7 +31,7 @@ TRAIN:
   IM_SIZE: 224
   EVAL_PERIOD: 100
 TEST:
-  DATASET: landmark
+  DATASET: landmark2
   SPLIT: val_list.txt
   BATCH_SIZE: 64
   IM_SIZE: 256
