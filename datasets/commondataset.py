@@ -46,8 +46,7 @@ class DataSet(torch.utils.data.Dataset):
         self._imdb, self._class_ids = [], []
         with open(os.path.join(self._data_path, self._split), "r") as fin:
             for line in fin:
-                im_dir, cont_id = line.strip().split(".jpg ")
-                im_dir+=".jpg"
+                im_dir, cont_id = line.strip().split(" ")
                 self._imdb.append({"im_path": im_dir, "class": int(cont_id)})
                 self._class_ids.append(int(cont_id))
         logger.info("Number of images: {}".format(len(self._imdb)))
